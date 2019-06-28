@@ -3,12 +3,15 @@ package io.swagger.model;
 import java.util.Objects;
 import io.swagger.model.Customer;
 import org.springframework.validation.annotation.Validated;
+
+import javax.persistence.Entity;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
  * Employee
  */
+@Entity
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2019-06-27T18:08:08.076Z[GMT]")
 public class Employee extends Customer  {

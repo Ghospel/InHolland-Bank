@@ -41,7 +41,7 @@ public class AccountsApiController implements AccountsApi {
 
     public ResponseEntity<Customer> accountsGet() {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<Customer>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<Customer>(HttpStatus.OK);
     }
 
     public ResponseEntity<InlineResponse200> accountsIbanBalanceGet(@ApiParam(value = "",required=true) @PathVariable("iban") String iban) {
@@ -66,7 +66,7 @@ public class AccountsApiController implements AccountsApi {
 
     public ResponseEntity<Void> accountsPost(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Account body) {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
 }
