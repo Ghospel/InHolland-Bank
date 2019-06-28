@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -57,10 +58,10 @@ public class CustomerApiController implements CustomerApi {
         return new ResponseEntity<Customer>(service.findCustomerById(id), HttpStatus.OK);
     }
 
-    public ResponseEntity<Customer> customerPost(@RequestBody Customer customer) {
+    public ResponseEntity<Customer> customerPost(@RequestBody @Validated Customer customer) {
         String accept = request.getHeader("Accept");
         service.saveCustomer(customer);
-        return new ResponseEntity<Customer>(HttpStatus.OK);
+        return new ResponseEntity<Customer>(HttpStatus.CREATED);
     }
 
 }

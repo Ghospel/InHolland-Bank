@@ -75,7 +75,7 @@ public class AccountsApiController implements AccountsApi {
     public ResponseEntity<Void> accountsPost(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Account body) {
         String accept = request.getHeader("Accept");
         service.saveAccount(body);
-        return new ResponseEntity<Void>(HttpStatus.OK);
+        return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
 
 }
