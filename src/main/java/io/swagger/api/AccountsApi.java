@@ -41,7 +41,7 @@ public interface AccountsApi {
     @RequestMapping(value = "/accounts",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<Customer> accountsGet();
+    ResponseEntity<List<Account>> accountsGet();
 
 
     @ApiOperation(value = "Get balance with the provided IBAN", nickname = "accountsIbanBalanceGet", notes = "", response = InlineResponse200.class, authorizations = {

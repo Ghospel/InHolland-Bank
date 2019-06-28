@@ -39,6 +39,10 @@ public class BankService {
         accountRepository.save(account);
     }
 
+    public void setMinimumBalance(Account account, float minBalance){
+        account.setMinimalBalance(minBalance);
+    }
+
     public void deleteAccountById(String IBAN){
         accountRepository.delete(findAccountById(IBAN));
     }

@@ -43,34 +43,38 @@ public class AccountsApiController implements AccountsApi {
         this.service = service;
     }
 
-    public ResponseEntity<Customer> accountsGet() {
+    public ResponseEntity<List<Account>> accountsGet() {
         String accept = request.getHeader("Accept");
-        List<Customer> customers = service.listAllCustomers();
-        return new ResponseEntity<Customer>(HttpStatus.OK);
+        return new ResponseEntity<List<Account>>(service.listAllAccounts(), HttpStatus.OK);
     }
 
     public ResponseEntity<InlineResponse200> accountsIbanBalanceGet(@ApiParam(value = "",required=true) @PathVariable("iban") String iban) {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<InlineResponse200>(HttpStatus.NOT_IMPLEMENTED);
+        InlineResponse200 res = new InlineResponse200();
+        res.setBalance(service.findAccountById(iban).getBalance());
+        return new ResponseEntity<InlineResponse200>(res, HttpStatus.OK);
     }
 
     public ResponseEntity<Void> accountsIbanDelete(@ApiParam(value = "",required=true) @PathVariable("iban") String iban) {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
+        service.deleteAccountById(iban);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     public ResponseEntity<Account> accountsIbanGet(@ApiParam(value = "",required=true) @PathVariable("iban") String iban) {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<Account>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<Account>(service.findAccountById(iban), HttpStatus.OK);
     }
 
     public ResponseEntity<Void> accountsIbanMinimumbalancePut(@ApiParam(value = "",required=true) @PathVariable("iban") String iban,@ApiParam(value = "",required=true) @PathVariable("minimumbalance") Float minimumbalance) {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
+        service.findAccountById(iban).setMinimalBalance(minimumbalance);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     public ResponseEntity<Void> accountsPost(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Account body) {
         String accept = request.getHeader("Accept");
+        service.saveAccount(body);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
