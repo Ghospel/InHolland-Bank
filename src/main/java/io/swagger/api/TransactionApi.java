@@ -39,7 +39,7 @@ public interface TransactionApi {
     @RequestMapping(value = "/transaction",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<Transaction> transactionGet();
+    ResponseEntity<List<Transaction>> transactionGet();
 
 
     @ApiOperation(value = "", nickname = "transactionIdGet", notes = "", response = Transaction.class, authorizations = {
@@ -71,6 +71,6 @@ public interface TransactionApi {
     @RequestMapping(value = "/transaction",
         produces = { "application/json" }, 
         method = RequestMethod.POST)
-    ResponseEntity<Transaction> transactionPost();
+    ResponseEntity<Transaction> transactionPost(@RequestBody Transaction transaction);
 
 }

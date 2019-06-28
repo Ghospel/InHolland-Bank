@@ -3,6 +3,7 @@ package io.swagger.api;
 import io.swagger.model.Transaction;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.*;
+import io.swagger.service.BankService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -31,25 +32,29 @@ public class TransactionApiController implements TransactionApi {
 
     private final HttpServletRequest request;
 
+    private BankService service;
+
     @org.springframework.beans.factory.annotation.Autowired
-    public TransactionApiController(ObjectMapper objectMapper, HttpServletRequest request) {
+    public TransactionApiController(BankService service, ObjectMapper objectMapper, HttpServletRequest request) {
         this.objectMapper = objectMapper;
         this.request = request;
+        this.service = service;
     }
 
-    public ResponseEntity<Transaction> transactionGet() {
+    public ResponseEntity<List<Transaction>> transactionGet() {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<Transaction>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<List<Transaction>>(service.listAllTransactions(), HttpStatus.OK);
     }
 
     public ResponseEntity<Transaction> transactionIdGet(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<Transaction>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<Transaction>(service.findTransactionById(id), HttpStatus.OK);
     }
 
-    public ResponseEntity<Transaction> transactionPost() {
+    public ResponseEntity<Transaction> transactionPost(@RequestBody Transaction transaction) {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<Transaction>(HttpStatus.NOT_IMPLEMENTED);
+        service.saveTransaction(transaction);
+        return new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
     }
 
 }
