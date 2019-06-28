@@ -3,6 +3,7 @@ package io.swagger.api;
 import io.swagger.model.Employee;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.*;
+import io.swagger.service.BankService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -31,30 +32,35 @@ public class EmployeeApiController implements EmployeeApi {
 
     private final HttpServletRequest request;
 
+    private BankService service;
+
     @org.springframework.beans.factory.annotation.Autowired
-    public EmployeeApiController(ObjectMapper objectMapper, HttpServletRequest request) {
+    public EmployeeApiController(BankService service, ObjectMapper objectMapper, HttpServletRequest request) {
         this.objectMapper = objectMapper;
         this.request = request;
+        this.service = service;
     }
 
-    public ResponseEntity<Employee> employeeGet() {
+    public ResponseEntity<List<Employee>> employeeGet() {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<Employee>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<List<Employee>>(service.listAllEmployees(), HttpStatus.OK);
     }
 
     public ResponseEntity<Void> employeeIdDelete(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
+        service.deleteEmployeeById(id);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     public ResponseEntity<Employee> employeeIdGet(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<Employee>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<Employee>(service.findEmployeeById(id), HttpStatus.OK);
     }
 
-    public ResponseEntity<Employee> employeePost() {
+    public ResponseEntity<Employee> employeePost(@RequestBody Employee employee) {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<Employee>(HttpStatus.NOT_IMPLEMENTED);
+        service.saveEmployee(employee);
+        return new ResponseEntity<Employee>(employee, HttpStatus.OK);
     }
 
 }

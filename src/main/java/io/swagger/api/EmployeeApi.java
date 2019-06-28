@@ -39,7 +39,7 @@ public interface EmployeeApi {
     @RequestMapping(value = "/employee",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<Employee> employeeGet();
+    ResponseEntity<List<Employee>> employeeGet();
 
 
     @ApiOperation(value = "Delete the employee", nickname = "employeeIdDelete", notes = "", authorizations = {
@@ -86,6 +86,6 @@ public interface EmployeeApi {
     @RequestMapping(value = "/employee",
         produces = { "application/json" }, 
         method = RequestMethod.POST)
-    ResponseEntity<Employee> employeePost();
+    ResponseEntity<Employee> employeePost(@RequestBody Employee employee);
 
 }
