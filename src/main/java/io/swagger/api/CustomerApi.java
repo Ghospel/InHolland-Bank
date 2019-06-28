@@ -39,7 +39,7 @@ public interface CustomerApi {
     @RequestMapping(value = "/customer",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<Customer> customerGet();
+    ResponseEntity<List<Customer>> customerGet();
 
 
     @ApiOperation(value = "Delete the customer", nickname = "customerIdDelete", notes = "", authorizations = {
@@ -86,6 +86,6 @@ public interface CustomerApi {
     @RequestMapping(value = "/customer",
         produces = { "application/json" }, 
         method = RequestMethod.POST)
-    ResponseEntity<Customer> customerPost();
+    ResponseEntity<Customer> customerPost(@RequestBody Customer customer);
 
 }

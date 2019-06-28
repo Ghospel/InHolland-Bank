@@ -5,6 +5,7 @@ import io.swagger.model.Customer;
 import io.swagger.model.InlineResponse200;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.*;
+import io.swagger.service.BankService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -33,14 +34,18 @@ public class AccountsApiController implements AccountsApi {
 
     private final HttpServletRequest request;
 
+    private BankService service;
+
     @org.springframework.beans.factory.annotation.Autowired
-    public AccountsApiController(ObjectMapper objectMapper, HttpServletRequest request) {
+    public AccountsApiController(BankService service, ObjectMapper objectMapper, HttpServletRequest request) {
         this.objectMapper = objectMapper;
         this.request = request;
+        this.service = service;
     }
 
     public ResponseEntity<Customer> accountsGet() {
         String accept = request.getHeader("Accept");
+        List<Customer> customers = service.listAllCustomers();
         return new ResponseEntity<Customer>(HttpStatus.OK);
     }
 

@@ -29,7 +29,7 @@ public class Account   {
   private String type = null;
 
   @JsonProperty("customer")
-  private Customer customer = null;
+  private Long customer = null;
 
   @JsonProperty("balance")
   private Float balance = null;
@@ -79,7 +79,7 @@ public class Account   {
   }
 
   public Account customer(Customer customer) {
-    this.customer = customer;
+    this.customer = customer.getId();
     return this;
   }
 
@@ -90,12 +90,12 @@ public class Account   {
   @ApiModelProperty(value = "")
 
   @Valid
-  public Customer getCustomer() {
+  public long getCustomer() {
     return customer;
   }
 
   public void setCustomer(Customer customer) {
-    this.customer = customer;
+    this.customer = customer.getId();
   }
 
   public Account balance(Float balance) {

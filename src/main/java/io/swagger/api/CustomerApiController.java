@@ -3,6 +3,7 @@ package io.swagger.api;
 import io.swagger.model.Customer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.*;
+import io.swagger.service.BankService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -31,15 +32,18 @@ public class CustomerApiController implements CustomerApi {
 
     private final HttpServletRequest request;
 
+    private BankService service;
+
     @org.springframework.beans.factory.annotation.Autowired
-    public CustomerApiController(ObjectMapper objectMapper, HttpServletRequest request) {
+    public CustomerApiController(BankService service, ObjectMapper objectMapper, HttpServletRequest request) {
         this.objectMapper = objectMapper;
         this.request = request;
+        this.service = service;
     }
 
-    public ResponseEntity<Customer> customerGet() {
+    public ResponseEntity<List<Customer>> customerGet() {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<Customer>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<List<Customer>>(service.listAllCustomers(), HttpStatus.OK);
     }
 
     public ResponseEntity<Void> customerIdDelete(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
@@ -49,12 +53,13 @@ public class CustomerApiController implements CustomerApi {
 
     public ResponseEntity<Customer> customerIdGet(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<Customer>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<Customer>(service.findCustomerById(id), HttpStatus.OK);
     }
 
-    public ResponseEntity<Customer> customerPost() {
+    public ResponseEntity<Customer> customerPost(@RequestBody Customer customer) {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<Customer>(HttpStatus.NOT_IMPLEMENTED);
+        service.saveCustomer(customer);
+        return new ResponseEntity<Customer>(HttpStatus.OK);
     }
 
 }

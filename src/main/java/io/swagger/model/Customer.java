@@ -29,11 +29,6 @@ public class Customer   {
   @JsonProperty("name")
   private String name = null;
 
-  public Customer id(Long id) {
-    this.id = id;
-    return this;
-  }
-
   /**
    * Get id
    * @return id
