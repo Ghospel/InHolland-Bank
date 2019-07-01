@@ -25,8 +25,8 @@ public class AccountsApiControllerIntegrationTest {
 
     @Test
     public void accountsGetTest() throws Exception {
-        ResponseEntity<Customer> responseEntity = api.accountsGet();
-        assertEquals(HttpStatus.NOT_IMPLEMENTED, responseEntity.getStatusCode());
+        ResponseEntity<List<Account>> responseEntity = api.accountsGet();
+        assertEquals(HttpStatus.NO_CONTENT, responseEntity.getStatusCode());
     }
 
     @Test

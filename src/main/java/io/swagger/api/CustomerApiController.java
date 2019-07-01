@@ -45,7 +45,7 @@ public class CustomerApiController implements CustomerApi {
     public ResponseEntity<List<Customer>> customerGet() {
         String accept = request.getHeader("Accept");
         List<Customer> customers = service.listAllCustomers();
-        return customers == null ? new ResponseEntity<List<Customer>>(HttpStatus.NO_CONTENT) : new ResponseEntity<List<Customer>>(customers, HttpStatus.OK);
+        return customers == null || customers.isEmpty() ? new ResponseEntity<List<Customer>>(HttpStatus.NO_CONTENT) : new ResponseEntity<List<Customer>>(customers, HttpStatus.OK);
     }
 
     public ResponseEntity<Void> customerIdDelete(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {

@@ -45,7 +45,7 @@ public class TransactionApiController implements TransactionApi {
         String accept = request.getHeader("Accept");
         List<Transaction> transactions = service.listAllTransactions();
 
-        return transactions == null ? new ResponseEntity<List<Transaction>>(HttpStatus.NO_CONTENT) : new ResponseEntity<List<Transaction>>(transactions, HttpStatus.OK);
+        return transactions == null || transactions.isEmpty() ? new ResponseEntity<List<Transaction>>(HttpStatus.NO_CONTENT) : new ResponseEntity<List<Transaction>>(transactions, HttpStatus.OK);
     }
 
     public ResponseEntity<Transaction> transactionIdGet(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {

@@ -47,7 +47,7 @@ public class AccountsApiController implements AccountsApi {
     public ResponseEntity<List<Account>> accountsGet() {
         String accept = request.getHeader("Accept");
         List<Account> accounts = service.listAllAccounts();
-        return accounts == null ? new ResponseEntity<List<Account>>(HttpStatus.NO_CONTENT) : new ResponseEntity<List<Account>>(accounts, HttpStatus.OK);
+        return accounts == null || accounts.isEmpty() ? new ResponseEntity<List<Account>>(HttpStatus.NO_CONTENT) : new ResponseEntity<List<Account>>(accounts, HttpStatus.OK);
     }
 
     public ResponseEntity<InlineResponse200> accountsIbanBalanceGet(@ApiParam(value = "",required=true) @PathVariable("iban") String iban) {

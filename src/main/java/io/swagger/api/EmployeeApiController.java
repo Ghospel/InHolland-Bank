@@ -44,7 +44,7 @@ public class EmployeeApiController implements EmployeeApi {
     public ResponseEntity<List<Employee>> employeeGet() {
         String accept = request.getHeader("Accept");
         List<Employee> employees = service.listAllEmployees();
-        return employees == null ? new ResponseEntity<List<Employee>>(HttpStatus.NO_CONTENT) : new ResponseEntity<List<Employee>>(employees, HttpStatus.OK);
+        return employees == null || employees.isEmpty() ? new ResponseEntity<List<Employee>>(HttpStatus.NO_CONTENT) : new ResponseEntity<List<Employee>>(employees, HttpStatus.OK);
     }
 
     public ResponseEntity<Void> employeeIdDelete(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
