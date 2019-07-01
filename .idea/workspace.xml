@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5eb09331-dff3-438d-8c20-8dc9bdaff771" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/api/TransactionApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/api/TransactionApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/Transaction.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -83,7 +83,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/api/TransactionApiController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="282">
@@ -101,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/model/Transaction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+            <state relative-caret-position="318">
+              <caret line="214" column="33" selection-start-line="214" selection-start-column="33" selection-end-line="214" selection-end-column="33" />
               <folding>
                 <element signature="e#4177#4178#0" expanded="true" />
                 <element signature="e#4205#4206#0" expanded="true" />
@@ -167,8 +167,8 @@
         <option value="$PROJECT_DIR$/src/main/java/io/swagger/api/CustomerApiController.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/swagger/api/AccountsApiController.java" />
         <option value="$PROJECT_DIR$/src/test/java/io/swagger/api/AccountsApiControllerIntegrationTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/swagger/model/Transaction.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/swagger/api/TransactionApiController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/swagger/model/Transaction.java" />
       </list>
     </option>
   </component>
@@ -780,17 +780,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/model/Transaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
-          <folding>
-            <element signature="e#4177#4178#0" expanded="true" />
-            <element signature="e#4205#4206#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/model/Account.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
@@ -805,6 +794,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
           <caret line="60" column="46" lean-forward="true" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/model/Transaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="214" column="33" selection-start-line="214" selection-start-column="33" selection-end-line="214" selection-end-column="33" />
+          <folding>
+            <element signature="e#4177#4178#0" expanded="true" />
+            <element signature="e#4205#4206#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

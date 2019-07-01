@@ -212,7 +212,7 @@ public class Transaction   {
     return performerID;
   }
 
-  public void setPerformerID(Integer performerID) {
+  public void setPerformerID(Long performerID) {
     this.performerID = performerID;
   }
 
