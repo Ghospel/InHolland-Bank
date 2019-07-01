@@ -43,18 +43,21 @@ public class EmployeeApiController implements EmployeeApi {
 
     public ResponseEntity<List<Employee>> employeeGet() {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<List<Employee>>(service.listAllEmployees(), HttpStatus.OK);
+        List<Employee> employees = service.listAllEmployees();
+        return employees == null ? new ResponseEntity<List<Employee>>(HttpStatus.INTERNAL_SERVER_ERROR) : new ResponseEntity<List<Employee>>(service.listAllEmployees(), HttpStatus.OK);
     }
 
     public ResponseEntity<Void> employeeIdDelete(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
         String accept = request.getHeader("Accept");
+        Employee employee = service.findEmployeeById(id);
         service.deleteEmployeeById(id);
-        return new ResponseEntity<Void>(HttpStatus.OK);
+        return employee == null ? new ResponseEntity<Void>(HttpStatus.NOT_FOUND) : new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     public ResponseEntity<Employee> employeeIdGet(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<Employee>(service.findEmployeeById(id), HttpStatus.OK);
+        Employee employee = service.findEmployeeById(id);
+        return employee == null ? new ResponseEntity<Employee>(HttpStatus.NOT_FOUND) : new ResponseEntity<Employee>(employee, HttpStatus.OK);
     }
 
     public ResponseEntity<Employee> employeePost(@RequestBody Employee employee) {

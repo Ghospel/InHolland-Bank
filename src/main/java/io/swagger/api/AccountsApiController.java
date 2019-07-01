@@ -65,8 +65,9 @@ public class AccountsApiController implements AccountsApi {
 
     public ResponseEntity<Void> accountsIbanDelete(@ApiParam(value = "",required=true) @PathVariable("iban") String iban) {
         String accept = request.getHeader("Accept");
+        Account account = service.findAccountById(iban);
         service.deleteAccountById(iban);
-        return new ResponseEntity<Void>(HttpStatus.OK);
+        return account == null ? new ResponseEntity<Void>(HttpStatus.NOT_FOUND) : new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     public ResponseEntity<Account> accountsIbanGet(@ApiParam(value = "",required=true) @PathVariable("iban") String iban) {
