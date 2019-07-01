@@ -58,6 +58,12 @@ public class TransactionApiController implements TransactionApi {
     public ResponseEntity<Transaction> transactionPost(@RequestBody Transaction transaction) {
         String accept = request.getHeader("Accept");
 
+        // Employees can make transfers anyway
+        if(service.findEmployeeById(transaction.getPerformerID()) != null){
+            service.saveTransaction(transaction);
+            return new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
+        }
+
         //if the transaction is to or from savings, ensure that it is on the accounts of the same customer
         if(transaction.getType() == Transaction.TypeEnum.TOSAVINGS || transaction.getType() == Transaction.TypeEnum.FROMSAVINGS){
             if(service.findAccountById(transaction.getRecipientIBAN()).getCustomer() != service.findAccountById(transaction.getFromIBAN()).getCustomer()){
