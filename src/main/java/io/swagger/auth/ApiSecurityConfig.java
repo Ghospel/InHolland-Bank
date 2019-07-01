@@ -40,11 +40,14 @@ public class ApiSecurityConfig extends WebSecurityConfigurerAdapter {
                 authentication.setAuthenticated(true);
             }
 
-            if (!key.isPresent()) {
+            /*if (!key.isPresent()) {
                 throw new BadCredentialsException("API Key was not found on the system");
             }
-            authentication.setAuthenticated(true);
+            authentication.setAuthenticated(true);*/
+
             return authentication;
+
+
         });
 
         httpSecurity

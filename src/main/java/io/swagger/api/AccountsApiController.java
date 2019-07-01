@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.net.ssl.HttpsURLConnection;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
@@ -45,13 +46,20 @@ public class AccountsApiController implements AccountsApi {
 
     public ResponseEntity<List<Account>> accountsGet() {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<List<Account>>(service.listAllAccounts(), HttpStatus.OK);
+        List<Account> accounts = service.listAllAccounts();
+        return accounts == null ? new ResponseEntity<List<Account>>(HttpStatus.INTERNAL_SERVER_ERROR) : new ResponseEntity<List<Account>>(accounts, HttpStatus.OK);
     }
 
     public ResponseEntity<InlineResponse200> accountsIbanBalanceGet(@ApiParam(value = "",required=true) @PathVariable("iban") String iban) {
         String accept = request.getHeader("Accept");
         InlineResponse200 res = new InlineResponse200();
-        res.setBalance(service.findAccountById(iban).getBalance());
+        Account acc = service.findAccountById(iban);
+        if(acc == null){
+            return new ResponseEntity<InlineResponse200>(HttpStatus.NOT_FOUND);
+        } else if (acc.getBalance() == null){
+            return new ResponseEntity<InlineResponse200>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        res.setBalance(acc.getBalance());
         return new ResponseEntity<InlineResponse200>(res, HttpStatus.OK);
     }
 
@@ -63,11 +71,16 @@ public class AccountsApiController implements AccountsApi {
 
     public ResponseEntity<Account> accountsIbanGet(@ApiParam(value = "",required=true) @PathVariable("iban") String iban) {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<Account>(service.findAccountById(iban), HttpStatus.OK);
+        Account acc = service.findAccountById(iban);
+        return acc == null ? new ResponseEntity<Account>(HttpStatus.NOT_FOUND) : new ResponseEntity<Account>(service.findAccountById(iban), HttpStatus.OK);
     }
 
     public ResponseEntity<Void> accountsIbanMinimumbalancePut(@ApiParam(value = "",required=true) @PathVariable("iban") String iban,@ApiParam(value = "",required=true) @PathVariable("minimumbalance") Float minimumbalance) {
         String accept = request.getHeader("Accept");
+        Account acc = service.findAccountById(iban);
+        if(acc == null){
+            return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+        }
         service.findAccountById(iban).setMinimalBalance(minimumbalance);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
