@@ -45,7 +45,7 @@ public class CustomerApiController implements CustomerApi {
     public ResponseEntity<List<Customer>> customerGet() {
         String accept = request.getHeader("Accept");
         List<Customer> customers = service.listAllCustomers();
-        return customers == null ? new ResponseEntity<List<Customer>>(HttpStatus.INTERNAL_SERVER_ERROR) : new ResponseEntity<List<Customer>>(customers, HttpStatus.OK);
+        return customers == null ? new ResponseEntity<List<Customer>>(HttpStatus.NO_CONTENT) : new ResponseEntity<List<Customer>>(customers, HttpStatus.OK);
     }
 
     public ResponseEntity<Void> customerIdDelete(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
@@ -58,7 +58,7 @@ public class CustomerApiController implements CustomerApi {
     public ResponseEntity<Customer> customerIdGet(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
         String accept = request.getHeader("Accept");
         Customer customer = service.findCustomerById(id);
-        return customer == null ? new ResponseEntity<Customer>(customer, HttpStatus.OK) : new ResponseEntity<Customer>(HttpStatus.NOT_FOUND);
+        return customer == null ? new ResponseEntity<Customer>(HttpStatus.NOT_FOUND) : new ResponseEntity<Customer>(customer, HttpStatus.OK);
     }
 
     public ResponseEntity<Customer> customerPost(@RequestBody @Validated Customer customer) {

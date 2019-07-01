@@ -43,12 +43,15 @@ public class TransactionApiController implements TransactionApi {
 
     public ResponseEntity<List<Transaction>> transactionGet() {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<List<Transaction>>(service.listAllTransactions(), HttpStatus.OK);
+        List<Transaction> transactions = service.listAllTransactions();
+
+        return transactions == null ? new ResponseEntity<List<Transaction>>(HttpStatus.NO_CONTENT) : new ResponseEntity<List<Transaction>>(transactions, HttpStatus.OK);
     }
 
     public ResponseEntity<Transaction> transactionIdGet(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<Transaction>(service.findTransactionById(id), HttpStatus.OK);
+        Transaction transaction = service.findTransactionById(id);
+        return transaction == null ? new ResponseEntity<Transaction>(HttpStatus.NOT_FOUND) : new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
     }
 
     public ResponseEntity<Transaction> transactionPost(@RequestBody Transaction transaction) {
