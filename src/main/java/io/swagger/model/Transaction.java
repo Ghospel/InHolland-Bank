@@ -46,14 +46,15 @@ public class Transaction   {
   private String fromIBAN = null;
 
   @JsonProperty("performerID")
-  private Integer performerID = null;
+  private Long performerID = null;
 
   /**
    * Type of transaction
    */
   public enum TypeEnum {
     DEPOSIT("deposit"),
-    
+    FROMSAVINGS("fromsavings"),
+    TOSAVINGS("tosavings"),
     WITHDRAWAL("withdrawal");
 
     private String value;
@@ -196,7 +197,7 @@ public class Transaction   {
     this.fromIBAN = fromIBAN;
   }
 
-  public Transaction performerID(Integer performerID) {
+  public Transaction performerID(Long performerID) {
     this.performerID = performerID;
     return this;
   }
@@ -207,7 +208,7 @@ public class Transaction   {
   **/
   @ApiModelProperty(example = "5", value = "")
 
-  public Integer getPerformerID() {
+  public Long getPerformerID() {
     return performerID;
   }
 
