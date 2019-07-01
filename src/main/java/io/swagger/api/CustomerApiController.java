@@ -44,18 +44,21 @@ public class CustomerApiController implements CustomerApi {
 
     public ResponseEntity<List<Customer>> customerGet() {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<List<Customer>>(service.listAllCustomers(), HttpStatus.OK);
+        List<Customer> customers = service.listAllCustomers();
+        return customers == null ? new ResponseEntity<List<Customer>>(HttpStatus.INTERNAL_SERVER_ERROR) : new ResponseEntity<List<Customer>>(customers, HttpStatus.OK);
     }
 
     public ResponseEntity<Void> customerIdDelete(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
         String accept = request.getHeader("Accept");
+        Customer customer = service.findCustomerById(id);
         service.deleteCustomerById(id);
-        return new ResponseEntity<Void>(HttpStatus.OK);
+        return  customer == null ? new ResponseEntity<Void>(HttpStatus.NOT_FOUND) : new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     public ResponseEntity<Customer> customerIdGet(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<Customer>(service.findCustomerById(id), HttpStatus.OK);
+        Customer customer = service.findCustomerById(id);
+        return customer == null ? new ResponseEntity<Customer>(customer, HttpStatus.OK) : new ResponseEntity<Customer>(HttpStatus.NOT_FOUND);
     }
 
     public ResponseEntity<Customer> customerPost(@RequestBody @Validated Customer customer) {
