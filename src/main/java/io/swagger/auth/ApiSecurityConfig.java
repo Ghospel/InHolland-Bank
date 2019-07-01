@@ -27,51 +27,65 @@ public class ApiSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Value("X-AUTHTOKEN")
     private String headerName;
+
     @Override
-    protected void configure(HttpSecurity httpSecurity) throws Exception {
-        ApiKeyAuthFilter filter = new ApiKeyAuthFilter(headerName);
-        filter.setAuthenticationManager(authentication -> {
-            String principal = (String) authentication.getPrincipal();
-            Optional<ApiKey> key = Optional.ofNullable(apiKeyRepository.findOne(principal));
-
-            System.out.println(principal);
-
-            if(principal.equals(principalRequestValue)){
-
-                authentication.setAuthenticated(true);
-            }
-
-            /*if (!key.isPresent()) {
-                throw new BadCredentialsException("API Key was not found on the system");
-            }
-            authentication.setAuthenticated(true);*/
-
-            return authentication;
-
-
-        });
-
-        httpSecurity
-                .antMatcher("/**")
-                .csrf().disable()    // disable X-site request forgery
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // If Stateless every request needs authentication
-                .and()
-                .addFilter(filter).authorizeRequests() // authorize all requests that has a correct header value
-                .anyRequest().authenticated() // all requests are authenticated
-                .and()
-                .formLogin().permitAll();
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests().antMatchers("/**").hasRole("USER").and().formLogin();
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("user")
-                .password("{noop}password") // {noop} means password is being sent without encoding
-                .roles("USER") // user has role USER
-                .and()
-                .withUser("admin")
-                .password("{noop}password")
-                .roles("ADMIN"); // admin has role ADMIN
+        auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
     }
+
+//    @Override
+//    protected void configure(HttpSecurity httpSecurity) throws Exception {
+//        ApiKeyAuthFilter filter = new ApiKeyAuthFilter(headerName);
+//        filter.setAuthenticationManager(authentication -> {
+//            String principal = (String) authentication.getPrincipal();
+//            Optional<ApiKey> key = Optional.ofNullable(apiKeyRepository.findOne(principal));
+//
+//            System.out.println(principal);
+//
+//            if(principal.equals(principalRequestValue)){
+//
+//                authentication.setAuthenticated(true);
+//            }
+//            try {
+//                httpSecurity.authorizeRequests().antMatchers("/**").hasRole("USER").and().formLogin();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            /*if (!key.isPresent()) {
+//                throw new BadCredentialsException("API Key was not found on the system");
+//            }
+//            authentication.setAuthenticated(true);*/
+//
+//            return authentication;
+//        });
+//
+//        httpSecurity
+//                .antMatcher("/**")
+//                .csrf().disable()    // disable X-site request forgery
+//
+//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // If Stateless every request needs authentication
+//                .and()
+//                .addFilter(filter).authorizeRequests() // authorize all requests that has a correct header value
+//                .anyRequest().authenticated() // all requests are authenticated
+//                .and()
+//                .formLogin().permitAll();
+//    }
+//
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.inMemoryAuthentication()
+//                .withUser("user")
+//                .password("{noop}password") // {noop} means password is being sent without encoding
+//                .roles("USER") // user has role USER
+//                .and()
+//                .withUser("admin")
+//                .password("{noop}password")
+//                .roles("ADMIN"); // admin has role ADMIN
+//    }
 
 }
