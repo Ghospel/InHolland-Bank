@@ -8,6 +8,7 @@ D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\api\AccountsApi.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\api\NotFoundException.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\service\BankService.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\Swagger2SpringBoot.java
+D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\helper\IbanTest.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\repository\AccountRepository.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\auth\ApiSecurityConfig.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\model\Account.java

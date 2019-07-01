@@ -15,6 +15,7 @@ io\swagger\configuration\CustomInstantDeserializer$6.class
 io\swagger\Swagger2SpringBoot$ExitException.class
 io\swagger\configuration\CustomInstantDeserializer$9.class
 io\swagger\repository\AccountRepository.class
+io\swagger\helper\IbanTest.class
 io\swagger\configuration\CustomInstantDeserializer$12.class
 io\swagger\api\CustomerApiController.class
 io\swagger\api\NotFoundException.class

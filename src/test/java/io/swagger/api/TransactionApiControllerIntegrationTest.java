@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import static org.junit.Assert.assertEquals;
 
@@ -23,7 +24,7 @@ public class TransactionApiControllerIntegrationTest {
 
     @Test
     public void transactionGetTest() throws Exception {
-        ResponseEntity<Transaction> responseEntity = api.transactionGet();
+        ResponseEntity<List<Transaction>> responseEntity = api.transactionGet();
         assertEquals(HttpStatus.NOT_IMPLEMENTED, responseEntity.getStatusCode());
     }
 
@@ -36,7 +37,8 @@ public class TransactionApiControllerIntegrationTest {
 
     @Test
     public void transactionPostTest() throws Exception {
-        ResponseEntity<Transaction> responseEntity = api.transactionPost();
+        Transaction transaction = new Transaction();
+        ResponseEntity<Transaction> responseEntity = api.transactionPost(transaction);
         assertEquals(HttpStatus.NOT_IMPLEMENTED, responseEntity.getStatusCode());
     }
 

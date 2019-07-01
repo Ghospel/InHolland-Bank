@@ -23,7 +23,7 @@ public class CustomerApiControllerIntegrationTest {
 
     @Test
     public void customerGetTest() throws Exception {
-        ResponseEntity<Customer> responseEntity = api.customerGet();
+        ResponseEntity<List<Customer>> responseEntity = api.customerGet();
         assertEquals(HttpStatus.NOT_IMPLEMENTED, responseEntity.getStatusCode());
     }
 
@@ -43,7 +43,8 @@ public class CustomerApiControllerIntegrationTest {
 
     @Test
     public void customerPostTest() throws Exception {
-        ResponseEntity<Customer> responseEntity = api.customerPost();
+        Customer customer = new Customer();
+        ResponseEntity<Customer> responseEntity = api.customerPost(customer);
         assertEquals(HttpStatus.NOT_IMPLEMENTED, responseEntity.getStatusCode());
     }
 

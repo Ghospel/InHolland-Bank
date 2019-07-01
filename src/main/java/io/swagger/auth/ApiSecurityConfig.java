@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 
 import java.util.Optional;
 
@@ -56,7 +57,9 @@ public class ApiSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // If Stateless every request needs authentication
                 .and()
                 .addFilter(filter).authorizeRequests() // authorize all requests that has a correct header value
-                .anyRequest().authenticated(); // all requests are authenticated
+                .anyRequest().authenticated() // all requests are authenticated
+                .and()
+                .formLogin().permitAll();
     }
 
     @Override
@@ -70,4 +73,5 @@ public class ApiSecurityConfig extends WebSecurityConfigurerAdapter {
                 .password("{noop}password")
                 .roles("ADMIN"); // admin has role ADMIN
     }
+
 }

@@ -23,7 +23,7 @@ public class EmployeeApiControllerIntegrationTest {
 
     @Test
     public void employeeGetTest() throws Exception {
-        ResponseEntity<Employee> responseEntity = api.employeeGet();
+        ResponseEntity<List<Employee>> responseEntity = api.employeeGet();
         assertEquals(HttpStatus.NOT_IMPLEMENTED, responseEntity.getStatusCode());
     }
 
@@ -43,7 +43,8 @@ public class EmployeeApiControllerIntegrationTest {
 
     @Test
     public void employeePostTest() throws Exception {
-        ResponseEntity<Employee> responseEntity = api.employeePost();
+        Employee employee = new Employee();
+        ResponseEntity<Employee> responseEntity = api.employeePost(employee);
         assertEquals(HttpStatus.NOT_IMPLEMENTED, responseEntity.getStatusCode());
     }
 
