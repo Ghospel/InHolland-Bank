@@ -38,14 +38,14 @@ public class CustomerApiControllerIntegrationTest {
     public void customerIdGetTest() throws Exception {
         Integer id = 56;
         ResponseEntity<Customer> responseEntity = api.customerIdGet(id);
-        assertEquals(HttpStatus.NOT_IMPLEMENTED, responseEntity.getStatusCode());
+        assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
     }
 
     @Test
     public void customerPostTest() throws Exception {
         Customer customer = new Customer();
         ResponseEntity<Customer> responseEntity = api.customerPost(customer);
-        assertEquals(HttpStatus.NOT_IMPLEMENTED, responseEntity.getStatusCode());
+        assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
     }
 
 }

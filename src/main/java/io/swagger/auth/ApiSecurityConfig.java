@@ -30,7 +30,7 @@ public class ApiSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/**").hasRole("USER").and().formLogin();
+        http.authorizeRequests().antMatchers("/**").hasRole("USER").and().formLogin().and().csrf().disable();
     }
 
     @Override

@@ -61,8 +61,9 @@ public class AccountsApiControllerIntegrationTest {
     @Test
     public void accountsPostTest() throws Exception {
         Account body = new Account();
+        body.setIBAN("asdfasdfasdf");
         ResponseEntity<Void> responseEntity = api.accountsPost(body);
-        assertEquals(HttpStatus.NOT_IMPLEMENTED, responseEntity.getStatusCode());
+        assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
     }
 
 }

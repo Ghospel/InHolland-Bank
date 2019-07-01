@@ -45,7 +45,7 @@ public class EmployeeApiControllerIntegrationTest {
     public void employeePostTest() throws Exception {
         Employee employee = new Employee();
         ResponseEntity<Employee> responseEntity = api.employeePost(employee);
-        assertEquals(HttpStatus.NOT_IMPLEMENTED, responseEntity.getStatusCode());
+        assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
     }
 
 }
