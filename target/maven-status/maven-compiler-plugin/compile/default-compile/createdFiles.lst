@@ -1,5 +1,4 @@
 io\swagger\api\TransactionApi.class
-io\swagger\auth\ApiKey.class
 io\swagger\configuration\HomeController.class
 io\swagger\api\EmployeeApi.class
 io\swagger\model\Customer.class
@@ -30,7 +29,6 @@ io\swagger\repository\TransactionRepository.class
 io\swagger\configuration\CustomInstantDeserializer$10.class
 io\swagger\configuration\CustomInstantDeserializer$8.class
 io\swagger\configuration\CustomInstantDeserializer$4.class
-io\swagger\auth\ApiKeyRepository.class
 io\swagger\repository\EmployeeRepository.class
 io\swagger\configuration\CustomInstantDeserializer.class
 io\swagger\configuration\CustomInstantDeserializer$7.class
