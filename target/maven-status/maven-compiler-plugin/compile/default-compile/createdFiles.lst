@@ -19,6 +19,7 @@ io\swagger\api\CustomerApiController.class
 io\swagger\api\NotFoundException.class
 io\swagger\api\CustomerApi.class
 io\swagger\configuration\CustomInstantDeserializer$5.class
+io\swagger\helper\IbanGenerator.class
 io\swagger\configuration\CustomInstantDeserializer$FromIntegerArguments.class
 io\swagger\api\EmployeeApiController.class
 io\swagger\api\ApiException.class
