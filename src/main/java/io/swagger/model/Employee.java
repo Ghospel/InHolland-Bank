@@ -1,12 +1,9 @@
 package io.swagger.model;
 
-import java.util.Objects;
-import io.swagger.model.Customer;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.Entity;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import java.util.Objects;
 
 /**
  * Employee

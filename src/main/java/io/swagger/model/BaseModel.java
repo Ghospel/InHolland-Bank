@@ -1,9 +1,9 @@
 package io.swagger.model;
 
-import java.io.Serializable;
-import javax.persistence.*;
-
 import lombok.Getter;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 
 @Entity
