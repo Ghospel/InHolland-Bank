@@ -22,7 +22,6 @@ import javax.validation.constraints.*;
 public class Account   {
 
   @Id
-  @JsonProperty("IBAN")
   private String IBAN = null;
 
   @JsonProperty("type")

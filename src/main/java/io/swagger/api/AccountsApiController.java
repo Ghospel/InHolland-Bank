@@ -1,5 +1,6 @@
 package io.swagger.api;
 
+import io.swagger.helper.IbanGenerator;
 import io.swagger.model.Account;
 import io.swagger.model.Customer;
 import io.swagger.model.InlineResponse200;
@@ -88,6 +89,8 @@ public class AccountsApiController implements AccountsApi {
 
     public ResponseEntity<Void> accountsPost(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Account body) {
         String accept = request.getHeader("Accept");
+        IbanGenerator generator = new IbanGenerator();
+        body.setIBAN(generator.generateIban());
         service.saveAccount(body);
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
