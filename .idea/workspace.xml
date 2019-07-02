@@ -2,73 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5eb09331-dff3-438d-8c20-8dc9bdaff771" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/swagger/AuthorizationServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/swagger/CustomUserDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/swagger/api/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/swagger/auth/AuthorizationServerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/swagger/auth/ResourceServerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/BaseModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/swagger/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/swagger/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/Swagger2SpringBoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/Swagger2SpringBoot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/auth/ApiKeyAuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/auth/ApiKeyAuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/auth/ApiSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/auth/ApiSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/swagger/service/BankService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/swagger/service/BankService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/RFC3339DateFormat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/Swagger2SpringBoot$ExitException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/Swagger2SpringBoot.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/AccountsApi.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/AccountsApiController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/ApiException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/ApiOriginFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/ApiResponseMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/CustomerApi.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/CustomerApiController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/EmployeeApi.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/EmployeeApiController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/NotFoundException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/TransactionApi.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/api/TransactionApiController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/auth/ApiKey.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/auth/ApiKeyAuthFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/auth/ApiKeyRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/auth/ApiSecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$10.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$11.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$12.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$9.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$FromDecimalArguments.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer$FromIntegerArguments.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/CustomInstantDeserializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/HomeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/JacksonConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/configuration/SwaggerDocumentationConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Account.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Customer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Employee.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/InlineResponse200.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction$TypeEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/model/Transaction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/repository/AccountRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/repository/CustomerRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/repository/EmployeeRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/repository/TransactionRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/swagger/service/BankService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -84,34 +18,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/service/BankService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/model/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/model/Customer.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/model/Role.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,6 +46,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
               <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="191">
+              <caret line="45" column="59" lean-forward="true" selection-start-line="45" selection-start-column="59" selection-end-line="45" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -182,11 +104,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/auth/ApiKeyAuthFilter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
               <caret line="17" column="84" lean-forward="true" selection-start-line="17" selection-start-column="84" selection-end-line="17" selection-end-column="84" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/auth/ApiKey.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -268,13 +202,13 @@
         <option value="$PROJECT_DIR$/src/main/java/io/swagger/CustomUserDetails.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/swagger/model/Role.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/swagger/repository/UserRepository.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/io/swagger/model/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/swagger/Swagger2SpringBoot.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/swagger/service/BankService.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/swagger/model/BaseModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/swagger/auth/AuthorizationServerConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/swagger/auth/ApiKeyAuthFilter.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -857,16 +791,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/auth/SecurityConfig.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/auth/AuthServerConfig.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/auth/ApiKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/AuthorizationServerApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -931,23 +855,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/model/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" column="35" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -1056,13 +963,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/auth/ApiSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="2" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/auth/ApiKeyRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1077,6 +977,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="84" lean-forward="true" selection-start-line="17" selection-start-column="84" selection-end-line="17" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/auth/ApiKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/auth/ApiSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="2" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/swagger/model/Role.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="45" column="59" lean-forward="true" selection-start-line="45" selection-start-column="59" selection-end-line="45" selection-end-column="59" />
         </state>
       </provider>
     </entry>
