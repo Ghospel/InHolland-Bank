@@ -52,6 +52,7 @@ public class Transaction   {
     DEPOSIT("deposit"),
     FROMSAVINGS("fromsavings"),
     TOSAVINGS("tosavings"),
+    TRANSFER("transfer"),
     WITHDRAWAL("withdrawal");
 
     private String value;

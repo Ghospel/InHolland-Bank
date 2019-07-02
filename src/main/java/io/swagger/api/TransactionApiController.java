@@ -2,6 +2,7 @@ package io.swagger.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.ApiParam;
+import io.swagger.model.Account;
 import io.swagger.model.Transaction;
 import io.swagger.service.BankService;
 import org.slf4j.Logger;
@@ -11,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.threeten.bp.OffsetDateTime;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -48,11 +50,16 @@ public class TransactionApiController implements TransactionApi {
 
     public ResponseEntity<Transaction> transactionPost(@RequestBody Transaction transaction) {
         String accept = request.getHeader("Accept");
+        Account from = service.findAccountById(transaction.getFromIBAN());
+        if(transaction.getAmount() < 0 || transaction.getAmount() > 2000){ //TODO: this is the transaction limit..
+            return new ResponseEntity<Transaction>(HttpStatus.BAD_REQUEST);
+        }
 
-        // Employees can make transfers anyway
-        if(service.findEmployeeById(transaction.getPerformerID()) != null){
-            service.saveTransaction(transaction);
-            return new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
+        //set the datetime of the transaction
+        transaction.setDate(OffsetDateTime.now());
+
+        if(from.getBalance() - transaction.getAmount() < from.getMinimalBalance()){
+            return new ResponseEntity<Transaction>(HttpStatus.BAD_REQUEST);
         }
 
         //if the transaction is to or from savings, ensure that it is on the accounts of the same customer
@@ -62,7 +69,16 @@ public class TransactionApiController implements TransactionApi {
                 return new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
             }
         }
-        return new ResponseEntity<Transaction>(HttpStatus.METHOD_NOT_ALLOWED);
+
+        //ensure that both accounts exists when depositing transferring money 
+        if(transaction.getType() == Transaction.TypeEnum.TRANSFER) {
+            if(service.findAccountById(transaction.getRecipientIBAN()) != null && service.findAccountById(transaction.getFromIBAN()) != null) {
+                service.saveTransaction(transaction);
+                return new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
+            }
+        }
+
+        return new ResponseEntity<Transaction>(HttpStatus.BAD_REQUEST);
     }
 
 }
