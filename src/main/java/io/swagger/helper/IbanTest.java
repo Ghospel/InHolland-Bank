@@ -1,33 +1,18 @@
 package io.swagger.helper;
-import java.math.BigInteger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public final class IbanTest {
 
-    public static final int IBANNUMBER_MIN_SIZE = 15;
-    public static final int IBANNUMBER_MAX_SIZE = 34;
-    public static final BigInteger IBANNUMBER_MAGIC_NUMBER = new BigInteger("97");
+    public static boolean IbanTest( String iban ) {
+        // String to be scanned to find the pattern.
+        String pattern = "^\\bNL[0-9]{2}INHO0[0-9]{9}$";
 
-    public static boolean ibanTest(String accountNumber) {
-        String newAccountNumber = accountNumber.trim();
+        // Create a Pattern object
+        Pattern r = Pattern.compile(pattern);
 
-        // Check that the total IBAN length is correct as per the country. If not, the IBAN is invalid. We could also check
-        // for specific length according to country, but for now we won't
-        if (newAccountNumber.length() < IBANNUMBER_MIN_SIZE || newAccountNumber.length() > IBANNUMBER_MAX_SIZE) {
-            return false;
-        }
-
-        // Move the four initial characters to the end of the string.
-        newAccountNumber = newAccountNumber.substring(4) + newAccountNumber.substring(0, 4);
-
-        // Replace each letter in the string with two digits, thereby expanding the string, where A = 10, B = 11, ..., Z = 35.
-        StringBuilder numericAccountNumber = new StringBuilder();
-        for (int i = 0;i < newAccountNumber.length();i++) {
-            numericAccountNumber.append(Character.getNumericValue(newAccountNumber.charAt(i)));
-        }
-
-        // Interpret the string as a decimal integer and compute the remainder of that number on division by 97.
-        BigInteger ibanNumber = new BigInteger(numericAccountNumber.toString());
-        return ibanNumber.mod(IBANNUMBER_MAGIC_NUMBER).intValue() == 1;
-
+        // Now create matcher object.
+        Matcher m = r.matcher(iban);
+        return m.find();
     }
 }
