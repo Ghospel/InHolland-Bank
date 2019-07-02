@@ -8,6 +8,7 @@ D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\api\AccountsApi.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\api\NotFoundException.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\service\BankService.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\Swagger2SpringBoot.java
+D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\auth\AuthServerConfig.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\helper\IbanTest.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\repository\AccountRepository.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\auth\ApiSecurityConfig.java
@@ -16,6 +17,7 @@ D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\api\EmployeeApi.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\api\TransactionApi.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\api\ApiResponseMessage.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\configuration\SwaggerDocumentationConfig.java
+D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\api\UserController.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\model\Customer.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\repository\CustomerRepository.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\repository\TransactionRepository.java
@@ -25,6 +27,7 @@ D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\model\InlineResponse200.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\RFC3339DateFormat.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\api\CustomerApiController.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\api\ApiOriginFilter.java
+D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\AuthorizationServerApplication.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\configuration\HomeController.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\api\CustomerApi.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\model\Transaction.java

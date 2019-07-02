@@ -1,13 +1,7 @@
 package io.swagger.service;
 
-import io.swagger.model.Account;
-import io.swagger.model.Customer;
-import io.swagger.model.Employee;
-import io.swagger.model.Transaction;
-import io.swagger.repository.AccountRepository;
-import io.swagger.repository.CustomerRepository;
-import io.swagger.repository.EmployeeRepository;
-import io.swagger.repository.TransactionRepository;
+import io.swagger.model.*;
+import io.swagger.repository.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,13 +13,30 @@ public class BankService {
     private CustomerRepository customerRepository;
     private EmployeeRepository employeeRepository;
     private TransactionRepository transactionRepository;
+    private UserRepository userRepository;
 
-    public BankService(AccountRepository accountRepository, CustomerRepository customerRepository, EmployeeRepository employeeRepository, TransactionRepository transactionRepository){
+    public BankService(AccountRepository accountRepository, CustomerRepository customerRepository, EmployeeRepository employeeRepository, TransactionRepository transactionRepository, UserRepository userRepository){
         this.accountRepository = accountRepository;
         this.customerRepository = customerRepository;
         this.employeeRepository = employeeRepository;
         this.transactionRepository = transactionRepository;
+        this.userRepository = userRepository;
     }
+
+    // USERS
+    public User findUserByName(String userName){
+        List<User> users = (List<User>) userRepository.findAll();
+        User found = null;
+        for(User user : users){
+            found = user.getUsername() == userName ? user : null;
+        }
+        return found;
+    }
+
+    public void saveUser(User user){
+        userRepository.save(user);
+    }
+
     // ACCOUNTS
     public List<Account> listAllAccounts(){
         return(List<Account>) accountRepository.findAll();
