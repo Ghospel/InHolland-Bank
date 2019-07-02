@@ -50,33 +50,43 @@ public class TransactionApiController implements TransactionApi {
 
     public ResponseEntity<Transaction> transactionPost(@RequestBody Transaction transaction) {
         String accept = request.getHeader("Accept");
+
         Account from = service.findAccountById(transaction.getFromIBAN());
-        if(transaction.getAmount() < 0 || transaction.getAmount() > 2000){ //TODO: this is the transaction limit..
-            return new ResponseEntity<Transaction>(HttpStatus.BAD_REQUEST);
-        }
+        Account to = service.findAccountById(transaction.getRecipientIBAN());
 
         //set the datetime of the transaction
         transaction.setDate(OffsetDateTime.now());
+
+        if(transaction.getAmount() < 0 || transaction.getAmount() > 2000){ //TODO: this is the transaction limit..
+            return new ResponseEntity<Transaction>(HttpStatus.BAD_REQUEST);
+        }
 
         if(from.getBalance() - transaction.getAmount() < from.getMinimalBalance()){
             return new ResponseEntity<Transaction>(HttpStatus.BAD_REQUEST);
         }
 
+        //ja volgensmij staat het hier goed
+        if(transaction.getType() == Transaction.TypeEnum.WITHDRAWAL){
+
+        }
+
         //if the transaction is to or from savings, ensure that it is on the accounts of the same customer
         if(transaction.getType() == Transaction.TypeEnum.TOSAVINGS || transaction.getType() == Transaction.TypeEnum.FROMSAVINGS){
-            if(service.findAccountById(transaction.getRecipientIBAN()).getCustomer() != service.findAccountById(transaction.getFromIBAN()).getCustomer()){
+            if(to.getCustomer() == from.getCustomer()){
                 service.saveTransaction(transaction);
                 return new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
             }
         }
 
-        //ensure that both accounts exists when depositing transferring money 
+        //ensure that both accounts exists when depositing transferring money
         if(transaction.getType() == Transaction.TypeEnum.TRANSFER) {
-            if(service.findAccountById(transaction.getRecipientIBAN()) != null && service.findAccountById(transaction.getFromIBAN()) != null) {
+            if(to != null && from != null) {
                 service.saveTransaction(transaction);
                 return new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
             }
         }
+
+
 
         return new ResponseEntity<Transaction>(HttpStatus.BAD_REQUEST);
     }
