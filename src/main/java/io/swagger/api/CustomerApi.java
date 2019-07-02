@@ -28,7 +28,7 @@ public interface CustomerApi {
         @ApiResponse(code = 498, message = "Token expired"),
         @ApiResponse(code = 499, message = "Token required"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/customer", //TODO: edit this to /api/customer
+    @RequestMapping(value = "/api/customer", //TODO: edit this to /api/customer
         produces = { "application/json" }, 
         method = RequestMethod.GET)
     ResponseEntity<List<Customer>> customerGet();
@@ -44,7 +44,7 @@ public interface CustomerApi {
         @ApiResponse(code = 498, message = "Token expired"),
         @ApiResponse(code = 499, message = "Token required"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/customer/{id}",
+    @RequestMapping(value = "/api/customer/{id}",
         method = RequestMethod.DELETE)
     ResponseEntity<Void> customerIdDelete(@ApiParam(value = "",required=true) @PathVariable("id") Integer id);
 
@@ -59,7 +59,7 @@ public interface CustomerApi {
         @ApiResponse(code = 498, message = "Token expired"),
         @ApiResponse(code = 499, message = "Token required"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/customer/{id}",
+    @RequestMapping(value = "/api/customer/{id}",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
     ResponseEntity<Customer> customerIdGet(@ApiParam(value = "",required=true) @PathVariable("id") Integer id);
@@ -75,7 +75,7 @@ public interface CustomerApi {
         @ApiResponse(code = 498, message = "Token expired"),
         @ApiResponse(code = 499, message = "Token required"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/customer",
+    @RequestMapping(value = "/api/customer",
         produces = { "application/json" }, 
         method = RequestMethod.POST)
     ResponseEntity<Customer> customerPost(@RequestBody Customer customer);

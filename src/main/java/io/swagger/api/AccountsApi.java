@@ -31,7 +31,7 @@ public interface AccountsApi {
         @ApiResponse(code = 498, message = "Token expired"),
         @ApiResponse(code = 499, message = "Token required"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/accounts",
+    @RequestMapping(value = "/api/accounts",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
     ResponseEntity<List<Account>> accountsGet();
@@ -48,7 +48,7 @@ public interface AccountsApi {
         @ApiResponse(code = 498, message = "Token expired"),
         @ApiResponse(code = 499, message = "Token required"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/accounts/{iban}/balance",
+    @RequestMapping(value = "/api/accounts/{iban}/balance",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
     ResponseEntity<InlineResponse200> accountsIbanBalanceGet(@ApiParam(value = "",required=true) @PathVariable("iban") String iban);
@@ -65,7 +65,7 @@ public interface AccountsApi {
         @ApiResponse(code = 498, message = "Token expired"),
         @ApiResponse(code = 499, message = "Token required"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/accounts/{iban}",
+    @RequestMapping(value = "/api/accounts/{iban}",
         method = RequestMethod.DELETE)
     ResponseEntity<Void> accountsIbanDelete(@ApiParam(value = "",required=true) @PathVariable("iban") String iban);
 
@@ -81,7 +81,7 @@ public interface AccountsApi {
         @ApiResponse(code = 498, message = "Token expired"),
         @ApiResponse(code = 499, message = "Token required"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/accounts/{iban}",
+    @RequestMapping(value = "/api/accounts/{iban}",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
     ResponseEntity<Account> accountsIbanGet(@ApiParam(value = "",required=true) @PathVariable("iban") String iban);
@@ -98,7 +98,7 @@ public interface AccountsApi {
         @ApiResponse(code = 498, message = "Token expired"),
         @ApiResponse(code = 499, message = "Token required"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/accounts/{iban}/{minimumbalance}",
+    @RequestMapping(value = "/api/accounts/{iban}/{minimumbalance}",
         method = RequestMethod.PUT)
     ResponseEntity<Void> accountsIbanMinimumbalancePut(@ApiParam(value = "",required=true) @PathVariable("iban") String iban,@ApiParam(value = "",required=true) @PathVariable("minimumbalance") Float minimumbalance);
 
@@ -113,7 +113,7 @@ public interface AccountsApi {
         @ApiResponse(code = 498, message = "Token expired"),
         @ApiResponse(code = 499, message = "Token required"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/accounts",
+    @RequestMapping(value = "/api/accounts",
         consumes = { "application/json" },
         method = RequestMethod.POST)
     ResponseEntity<Void> accountsPost(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Account body);

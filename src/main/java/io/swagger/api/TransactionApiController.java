@@ -66,8 +66,8 @@ public class TransactionApiController implements TransactionApi {
         }
 
         //ja volgensmij staat het hier goed
-        if(transaction.getType() == Transaction.TypeEnum.WITHDRAWAL){
-
+        if(transaction.getType() == Transaction.TypeEnum.WITHDRAWAL && transaction.getRecipientIBAN() != null){
+            return new ResponseEntity<Transaction>(HttpStatus.BAD_REQUEST);
         }
 
         //if the transaction is to or from savings, ensure that it is on the accounts of the same customer
