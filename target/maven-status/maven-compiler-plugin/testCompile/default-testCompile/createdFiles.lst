@@ -1,0 +1,4 @@
+io\swagger\api\AccountsApiControllerIntegrationTest.class
+io\swagger\api\EmployeeApiControllerIntegrationTest.class
+io\swagger\api\CustomerApiControllerIntegrationTest.class
+io\swagger\api\TransactionApiControllerIntegrationTest.class
