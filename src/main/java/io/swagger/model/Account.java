@@ -15,7 +15,7 @@ import java.util.Objects;
 @Entity
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2019-06-27T18:08:08.076Z[GMT]")
-public class Account   {
+public class Account {
 
   @Id
   private String IBAN = null;

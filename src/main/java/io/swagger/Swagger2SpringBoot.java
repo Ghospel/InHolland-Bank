@@ -1,9 +1,6 @@
 package io.swagger;
 
-import io.swagger.model.Account;
-import io.swagger.model.Customer;
-import io.swagger.model.Role;
-import io.swagger.model.User;
+import io.swagger.model.*;
 import io.swagger.service.BankService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -15,6 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.util.Arrays;
+import java.util.List;
 
 @SpringBootApplication
 @EnableSwagger2
@@ -34,8 +32,9 @@ public class Swagger2SpringBoot implements CommandLineRunner {
 
     @Autowired
     public void authenticationManager(AuthenticationManagerBuilder builder, BankService service) throws Exception {
-        service.saveUser(new User("user", "user", Arrays.asList(new Role("USER"), new Role("ACTUATOR")), true));
-        //service.saveUser(new User("employee", "employee", Arrays.asList(new Role("EMPLOYEE"), new Role("ACTUATOR")), true));
+        Employee henk = new Employee("user", "henk", "user", Arrays.asList(new Role("EMPLOYEE")));
+        service.saveEmployee(henk);
+        User e = service.findUserByName("user");
 
         //create the banks own account
         Customer bankCustomer = new Customer();
@@ -44,6 +43,10 @@ public class Swagger2SpringBoot implements CommandLineRunner {
         Account bankAccount = new Account();
         bankAccount.setCustomer(bankCustomer.getId());
         bankAccount.setIBAN("NL01INHO0000000001");
+        bankAccount.setBalance(2000f);
+        bankAccount.setMinimalBalance(-100f);
+        bankAccount.setDaylimit(10000f);
+        bankAccount.setType("Checking");
         bankAccount.setBalance(0f);
         service.saveAccount(bankAccount);
         builder.userDetailsService(s -> new CustomUserDetails(service.findUserByName(s)));

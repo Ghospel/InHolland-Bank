@@ -29,10 +29,18 @@ public class BankService {
         List<User> users = (List<User>) userRepository.findAll();
         User found = null;
         for(User user : users){
-            // apparently we can't compare strings the normal way with '=='..
-            found = user.getUsername().compareTo(userName) == 0 ? user : null;
+            if(user.getUsername() != null){
+                if(user.getUsername().compareTo((userName))==0){
+                    if(user.getPassword() != null)
+                        found = user;
+                }
+            }
         }
         return found;
+    }
+
+    public List<User> listAllUsers(){
+        return (List<User>) userRepository.findAll();
     }
 
     public void saveUser(User user){

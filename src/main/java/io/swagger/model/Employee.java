@@ -1,8 +1,12 @@
 package io.swagger.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.Entity;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -10,8 +14,14 @@ import java.util.Objects;
  */
 @Entity
 @Validated
+@AllArgsConstructor
+@Getter
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2019-06-27T18:08:08.076Z[GMT]")
 public class Employee extends Customer  {
+
+  public Employee(String username, String name, String password, List<Role> roles){
+    super(username, name, password, roles);
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
