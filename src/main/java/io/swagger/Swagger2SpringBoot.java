@@ -42,7 +42,7 @@ public class Swagger2SpringBoot implements CommandLineRunner {
         bankCustomer.setName("Inholland Bank Account");
         service.saveCustomer(bankCustomer);
         Account bankAccount = new Account();
-        bankAccount.setCustomer(bankCustomer);
+        bankAccount.setCustomer(bankCustomer.getId());
         bankAccount.setIBAN("NL01INHO0000000001");
         bankAccount.setBalance(0f);
         service.saveAccount(bankAccount);

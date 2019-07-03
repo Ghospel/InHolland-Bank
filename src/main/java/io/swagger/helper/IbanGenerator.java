@@ -8,11 +8,8 @@ import java.util.List;
 
 public class IbanGenerator {
 
-    @Autowired
-    private BankService bankService;
-
-    public String generateIban(){
-        List<Account> accounts = bankService.listAllAccounts();
+    public static String generateIban(BankService service){
+        List<Account> accounts = service.listAllAccounts();
         Long accountNumber = Long.parseLong(accounts.get(accounts.size()-1).getIBAN().substring(9));
         return "NL01INHO0" + ++accountNumber;
     }

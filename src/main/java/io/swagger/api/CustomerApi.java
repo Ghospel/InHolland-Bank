@@ -79,5 +79,4 @@ public interface CustomerApi {
         produces = { "application/json" }, 
         method = RequestMethod.POST)
     ResponseEntity<Customer> customerPost(@RequestBody Customer customer);
-
 }

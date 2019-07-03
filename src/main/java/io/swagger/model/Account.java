@@ -73,8 +73,8 @@ public class Account   {
     this.type = type;
   }
 
-  public Account customer(Customer customer) {
-    this.customer = customer.getId();
+  public Account customer(Long customer) {
+    this.customer = customer;
     return this;
   }
 
@@ -89,8 +89,8 @@ public class Account   {
     return customer;
   }
 
-  public void setCustomer(Customer customer) {
-    this.customer = customer.getId();
+  public void setCustomer(Long customer) {
+    this.customer = customer;
   }
 
   public Account balance(Float balance) {

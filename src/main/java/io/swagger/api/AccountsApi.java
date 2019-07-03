@@ -21,11 +21,11 @@ import java.util.List;
 @Api(value = "accounts", description = "the accounts API")
 public interface AccountsApi {
 
-    @ApiOperation(value = "Get all the accounts", nickname = "accountsGet", notes = "", response = Customer.class, authorizations = {
+    @ApiOperation(value = "Get all the accounts", nickname = "accountsGet", notes = "", response = Account.class, authorizations = {
         @Authorization(value = "password", scopes = {
             @AuthorizationScope(scope = "", description = "")            })    }, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "OK", response = Customer.class),
+        @ApiResponse(code = 200, message = "OK", response = Account.class),
         @ApiResponse(code = 401, message = "Unauthorized"),
         @ApiResponse(code = 404, message = "Not found"),
         @ApiResponse(code = 498, message = "Token expired"),
@@ -37,11 +37,11 @@ public interface AccountsApi {
     ResponseEntity<List<Account>> accountsGet();
 
 
-    @ApiOperation(value = "Get all the accounts for one customer", nickname = "accountsGetForCustomer", notes = "", response = Customer.class, authorizations = {
+    @ApiOperation(value = "Get all the accounts for one customer", nickname = "accountsGetForCustomer", notes = "", response = Account.class, authorizations = {
             @Authorization(value = "password", scopes = {
                     @AuthorizationScope(scope = "", description = "")            })    }, tags={  })
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "OK", response = Customer.class),
+            @ApiResponse(code = 200, message = "OK", response = Account.class),
             @ApiResponse(code = 401, message = "Unauthorized"),
             @ApiResponse(code = 404, message = "Not found"),
             @ApiResponse(code = 498, message = "Token expired"),
