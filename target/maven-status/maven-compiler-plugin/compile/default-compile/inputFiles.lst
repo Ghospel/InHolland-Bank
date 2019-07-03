@@ -3,19 +3,17 @@ D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\auth\AuthorizationServerConf
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\CustomUserDetails.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\repository\EmployeeRepository.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\configuration\JacksonConfiguration.java
-D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\auth\ApiKeyRepository.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\model\BaseModel.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\configuration\CustomInstantDeserializer.java
-D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\auth\ApiKeyAuthFilter.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\api\AccountsApi.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\api\NotFoundException.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\model\User.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\service\BankService.java
+D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\helper\IbanGenerator.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\Swagger2SpringBoot.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\helper\IbanTest.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\repository\UserRepository.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\repository\AccountRepository.java
-D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\auth\ApiSecurityConfig.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\model\Account.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\model\Role.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\api\EmployeeApi.java
@@ -38,4 +36,3 @@ D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\model\Transaction.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\auth\ResourceServerConfiguration.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\model\Employee.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\api\ApiException.java
-D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\auth\ApiKey.java
