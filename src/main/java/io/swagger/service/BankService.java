@@ -55,6 +55,7 @@ public class BankService {
                 res.add(acc);
             }
         }
+        return res;
     }
 
     public void saveAccount(Account account){
