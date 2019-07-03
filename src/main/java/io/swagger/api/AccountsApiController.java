@@ -82,6 +82,7 @@ public class AccountsApiController implements AccountsApi {
         String accept = request.getHeader("Accept");
         IbanGenerator generator = new IbanGenerator();
         body.setIBAN(generator.generateIban());
+        body.setCustomer(service.findCustomerById(body.getCustomer()));
         service.saveAccount(body);
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }

@@ -1,5 +1,7 @@
 package io.swagger;
 
+import io.swagger.model.Account;
+import io.swagger.model.Customer;
 import io.swagger.model.Role;
 import io.swagger.model.User;
 import io.swagger.service.BankService;
@@ -33,7 +35,17 @@ public class Swagger2SpringBoot implements CommandLineRunner {
     @Autowired
     public void authenticationManager(AuthenticationManagerBuilder builder, BankService service) throws Exception {
         service.saveUser(new User("user", "user", Arrays.asList(new Role("USER"), new Role("ACTUATOR")), true));
+        //service.saveUser(new User("employee", "employee", Arrays.asList(new Role("EMPLOYEE"), new Role("ACTUATOR")), true));
 
+        //create the banks own account
+        Customer bankCustomer = new Customer();
+        bankCustomer.setName("Inholland Bank Account");
+        service.saveCustomer(bankCustomer);
+        Account bankAccount = new Account();
+        bankAccount.setCustomer(bankCustomer);
+        bankAccount.setIBAN("NL01INHO0000000001");
+        bankAccount.setBalance(0f);
+        service.saveAccount(bankAccount);
         builder.userDetailsService(s -> new CustomUserDetails(service.findUserByName(s)));
 
     }
