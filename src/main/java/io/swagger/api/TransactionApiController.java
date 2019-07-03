@@ -53,6 +53,8 @@ public class TransactionApiController implements TransactionApi {
 
         Account from = service.findAccountById(transaction.getFromIBAN());
         Account to = service.findAccountById(transaction.getRecipientIBAN());
+        //TODO: FIX CHECKS WITH PERFORMER
+
 
         //set the datetime of the transaction
         transaction.setDate(OffsetDateTime.now());
