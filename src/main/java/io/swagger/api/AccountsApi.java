@@ -37,6 +37,21 @@ public interface AccountsApi {
     ResponseEntity<List<Account>> accountsGet();
 
 
+    @ApiOperation(value = "Get all the accounts for one customer", nickname = "accountsGetForCustomer", notes = "", response = Customer.class, authorizations = {
+            @Authorization(value = "password", scopes = {
+                    @AuthorizationScope(scope = "", description = "")            })    }, tags={  })
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK", response = Customer.class),
+            @ApiResponse(code = 401, message = "Unauthorized"),
+            @ApiResponse(code = 404, message = "Not found"),
+            @ApiResponse(code = 498, message = "Token expired"),
+            @ApiResponse(code = 499, message = "Token required"),
+            @ApiResponse(code = 500, message = "Internal server error") })
+    @RequestMapping(value = "/api/accounts/{customer}",
+            produces = { "application/json" },
+            method = RequestMethod.GET)
+    ResponseEntity<List<Account>> accountsGetForCustomer();
+
     @ApiOperation(value = "Get balance with the provided IBAN", nickname = "accountsIbanBalanceGet", notes = "", response = InlineResponse200.class, authorizations = {
         @Authorization(value = "password", scopes = {
             @AuthorizationScope(scope = "", description = "")            })    }, tags={  })

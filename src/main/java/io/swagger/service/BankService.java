@@ -4,6 +4,7 @@ import io.swagger.model.*;
 import io.swagger.repository.*;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -45,6 +46,15 @@ public class BankService {
 
     public Account findAccountById(String IBAN){
         return accountRepository.findOne(IBAN);
+    }
+
+    public List<Account> findAccountsForCustomer(Long customerId){
+        List<Account> res = new ArrayList<Account>();
+        for(Account acc : accountRepository.findAll()){
+            if(acc.getCustomer() == customerId){
+                res.add(acc);
+            }
+        }
     }
 
     public void saveAccount(Account account){
