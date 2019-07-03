@@ -65,9 +65,28 @@ public class TransactionApiController implements TransactionApi {
             return new ResponseEntity<Transaction>(HttpStatus.BAD_REQUEST);
         }
 
-        //ja volgensmij staat het hier goed
-        if(transaction.getType() == Transaction.TypeEnum.WITHDRAWAL && transaction.getRecipientIBAN() != null){
-            return new ResponseEntity<Transaction>(HttpStatus.BAD_REQUEST);
+        if(transaction.getType() == Transaction.TypeEnum.WITHDRAWAL){
+            if(transaction.getRecipientIBAN() != null || transaction.getFromIBAN() == null){
+                return new ResponseEntity<Transaction>(HttpStatus.BAD_REQUEST);
+            }
+            if(from != null){
+                from.setBalance(from.getBalance() - transaction.getAmount());
+                service.saveTransaction(transaction);
+                service.saveAccount(from);
+                return new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
+            }
+        }
+
+        if(transaction.getType() == Transaction.TypeEnum.DEPOSIT && transaction.getFromIBAN() != null){
+            if(transaction.getFromIBAN() != null){
+                return new ResponseEntity<Transaction>(HttpStatus.BAD_REQUEST);
+            }
+            if(to != null){
+                to.setBalance(to.getBalance() - transaction.getAmount());
+                service.saveTransaction(transaction);
+                service.saveAccount(to);
+                return new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
+            }
         }
 
         //if the transaction is to or from savings, ensure that it is on the accounts of the same customer
