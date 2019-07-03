@@ -73,7 +73,11 @@ public class TransactionApiController implements TransactionApi {
         //if the transaction is to or from savings, ensure that it is on the accounts of the same customer
         if(transaction.getType() == Transaction.TypeEnum.TOSAVINGS || transaction.getType() == Transaction.TypeEnum.FROMSAVINGS){
             if(to.getCustomer() == from.getCustomer()){
+                from.setBalance(from.getBalance() - transaction.getAmount());
+                to.setBalance(to.getBalance() + transaction.getAmount());
                 service.saveTransaction(transaction);
+                service.saveAccount(from);
+                service.saveAccount(to);
                 return new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
             }
         }
@@ -81,6 +85,11 @@ public class TransactionApiController implements TransactionApi {
         //ensure that both accounts exists when depositing transferring money
         if(transaction.getType() == Transaction.TypeEnum.TRANSFER) {
             if(to != null && from != null) {
+                from.setBalance(from.getBalance() - transaction.getAmount());
+                to.setBalance(to.getBalance() + transaction.getAmount());
+                service.saveTransaction(transaction);
+                service.saveAccount(from);
+                service.saveAccount(to);
                 service.saveTransaction(transaction);
                 return new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
             }
