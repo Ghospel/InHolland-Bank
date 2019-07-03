@@ -28,7 +28,7 @@ public interface TransactionApi {
         @ApiResponse(code = 498, message = "Token expired"),
         @ApiResponse(code = 499, message = "Token required"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/transaction",
+    @RequestMapping(value = "/api/transaction",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
     ResponseEntity<List<Transaction>> transactionGet();
@@ -44,7 +44,7 @@ public interface TransactionApi {
         @ApiResponse(code = 498, message = "Token expired"),
         @ApiResponse(code = 499, message = "Token required"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/transaction/{id}",
+    @RequestMapping(value = "/api/transaction/{id}",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
     ResponseEntity<Transaction> transactionIdGet(@ApiParam(value = "",required=true) @PathVariable("id") Integer id);
@@ -60,7 +60,7 @@ public interface TransactionApi {
         @ApiResponse(code = 498, message = "Token expired"),
         @ApiResponse(code = 499, message = "Token required"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/transaction",
+    @RequestMapping(value = "/api/transaction",
         produces = { "application/json" }, 
         method = RequestMethod.POST)
     ResponseEntity<Transaction> transactionPost(@RequestBody Transaction transaction);

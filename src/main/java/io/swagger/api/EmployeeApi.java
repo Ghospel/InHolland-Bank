@@ -28,7 +28,7 @@ public interface EmployeeApi {
         @ApiResponse(code = 498, message = "Token expired"),
         @ApiResponse(code = 499, message = "Token required"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/employee",
+    @RequestMapping(value = "/api/employee",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
     ResponseEntity<List<Employee>> employeeGet();
@@ -44,7 +44,7 @@ public interface EmployeeApi {
         @ApiResponse(code = 498, message = "Token expired"),
         @ApiResponse(code = 499, message = "Token required"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/employee/{id}",
+    @RequestMapping(value = "/api/employee/{id}",
         method = RequestMethod.DELETE)
     ResponseEntity<Void> employeeIdDelete(@ApiParam(value = "",required=true) @PathVariable("id") Integer id);
 
@@ -59,7 +59,7 @@ public interface EmployeeApi {
         @ApiResponse(code = 498, message = "Token expired"),
         @ApiResponse(code = 499, message = "Token required"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/employee/{id}",
+    @RequestMapping(value = "/api/employee/{id}",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
     ResponseEntity<Employee> employeeIdGet(@ApiParam(value = "",required=true) @PathVariable("id") Integer id);
@@ -75,7 +75,7 @@ public interface EmployeeApi {
         @ApiResponse(code = 498, message = "Token expired"),
         @ApiResponse(code = 499, message = "Token required"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/employee",
+    @RequestMapping(value = "/api/employee",
         produces = { "application/json" }, 
         method = RequestMethod.POST)
     ResponseEntity<Employee> employeePost(@RequestBody Employee employee);
