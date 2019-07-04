@@ -42,11 +42,11 @@ public class AccountsApiController implements AccountsApi {
         return accounts == null || accounts.isEmpty() ? new ResponseEntity<List<Account>>(HttpStatus.NO_CONTENT) : new ResponseEntity<List<Account>>(accounts, HttpStatus.OK);
     }
 
-    public ResponseEntity<List<Account>> accountsGetForCustomer(@PathVariable("customer") Long customer) {
-        String accept = request.getHeader("Accept");
-        List<Account> accounts = service.findAccountsForCustomer(customer);
-        return accounts == null || accounts.isEmpty() ? new ResponseEntity<List<Account>>(HttpStatus.NO_CONTENT) : new ResponseEntity<List<Account>>(accounts, HttpStatus.OK);
-    }
+//    public ResponseEntity<List<Account>> accountsGetForCustomer(@PathVariable("customer") Long customer) {
+//        String accept = request.getHeader("Accept");
+//        List<Account> accounts = service.findAccountsForCustomer(customer);
+//        return accounts == null || accounts.isEmpty() ? new ResponseEntity<List<Account>>(HttpStatus.NO_CONTENT) : new ResponseEntity<List<Account>>(accounts, HttpStatus.OK);
+//    }
 
     public ResponseEntity<InlineResponse200> accountsIbanBalanceGet(@ApiParam(value = "",required=true) @PathVariable("iban") String iban) {
         String accept = request.getHeader("Accept");
@@ -64,7 +64,9 @@ public class AccountsApiController implements AccountsApi {
     public ResponseEntity<Void> accountsIbanDelete(@ApiParam(value = "",required=true) @PathVariable("iban") String iban) {
         String accept = request.getHeader("Accept");
         Account account = service.findAccountById(iban);
-        service.deleteAccountById(iban);
+        if(account != null){
+            service.deleteAccountById(iban);
+        }
         return account == null ? new ResponseEntity<Void>(HttpStatus.NOT_FOUND) : new ResponseEntity<Void>(HttpStatus.OK);
     }
 
@@ -80,7 +82,8 @@ public class AccountsApiController implements AccountsApi {
         if(acc == null){
             return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
         }
-        service.findAccountById(iban).setMinimalBalance(minimumbalance);
+        acc.setMinimalBalance(minimumbalance);
+        service.saveAccount(acc);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 

@@ -42,7 +42,9 @@ public class EmployeeApiController implements EmployeeApi {
     public ResponseEntity<Void> employeeIdDelete(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
         String accept = request.getHeader("Accept");
         Employee employee = service.findEmployeeById(id);
-        service.deleteEmployeeById(id);
+        if(employee != null){
+            service.deleteEmployeeById(id);
+        }
         return employee == null ? new ResponseEntity<Void>(HttpStatus.NOT_FOUND) : new ResponseEntity<Void>(HttpStatus.OK);
     }
 
@@ -55,7 +57,7 @@ public class EmployeeApiController implements EmployeeApi {
     public ResponseEntity<Employee> employeePost(@RequestBody Employee employee) {
         String accept = request.getHeader("Accept");
         service.saveEmployee(employee);
-        return new ResponseEntity<Employee>(employee, HttpStatus.OK);
+        return new ResponseEntity<Employee>(employee, HttpStatus.CREATED);
     }
 
 }

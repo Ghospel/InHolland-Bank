@@ -45,10 +45,10 @@ public class CustomerApiController implements CustomerApi {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Collection<GrantedAuthority> ls;
         //Collection<GrantedAuthority> auths = (Collection<GrantedAuthority>) SecurityContextHolder.getPrincipal getAuthentication().getAuthorities();
-        if (!(authentication instanceof AnonymousAuthenticationToken)) {
-            ls = (Collection<GrantedAuthority>) authentication.getAuthorities();
-            //authentication.getPrincipal().
-        }
+//        if (!(authentication instanceof AnonymousAuthenticationToken)) {
+//            ls = (Collection<GrantedAuthority>) authentication.getAuthorities();
+//            //authentication.getPrincipal().
+//        }
         String accept = request.getHeader("Accept");
         List<Customer> customers = service.listAllCustomers();
         return customers == null || customers.isEmpty() ? new ResponseEntity<List<Customer>>(HttpStatus.NO_CONTENT) : new ResponseEntity<List<Customer>>(customers, HttpStatus.OK);
@@ -57,7 +57,9 @@ public class CustomerApiController implements CustomerApi {
     public ResponseEntity<Void> customerIdDelete(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
         String accept = request.getHeader("Accept");
         Customer customer = service.findCustomerById(id);
-        service.deleteCustomerById(id);
+        if(customer != null){
+            service.deleteCustomerById(id);
+        }
         return  customer == null ? new ResponseEntity<Void>(HttpStatus.NOT_FOUND) : new ResponseEntity<Void>(HttpStatus.OK);
     }
 
