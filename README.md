@@ -8,4 +8,4 @@ unit tests are found in src/test/java/io.swagger.api
 
 the frontend is in it's own repository [here](https://github.com/Ghospel/inholland-bank-frontend)
 
-this project is hosted [here](https://inholland-bank.herokuapp.com)
+this project is hosted [here](https://inholland-bank.herokuapp.com/api)
