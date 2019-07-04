@@ -1,6 +1,6 @@
 # Inholland Bank app
 
-the specification for the API can be found on https://app.swaggerhub.com/apis/Ghospel1/Bank/1.0.0
+the specification for the API can be found [here](https://app.swaggerhub.com/apis/Ghospel1/Bank/1.0.0)
 
 the postman functional tests are in the root of this repo
 
