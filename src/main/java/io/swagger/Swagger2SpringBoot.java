@@ -2,14 +2,18 @@ package io.swagger;
 
 import io.swagger.model.*;
 import io.swagger.service.BankService;
+import io.swagger.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.ExitCodeGenerator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.core.userdetails.UserDetails;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.util.Arrays;
 import java.util.List;
@@ -32,9 +36,10 @@ public class Swagger2SpringBoot implements CommandLineRunner {
 
     @Autowired
     public void authenticationManager(AuthenticationManagerBuilder builder, BankService service) throws Exception {
-        Employee henk = new Employee("user", "henk", "user", Arrays.asList(new Role("EMPLOYEE")));
+        Employee henk = new Employee("employee", "henk", "employee", Arrays.asList(new Role("EMPLOYEE")));
+        Customer piet = new Customer("user", "piet", "user", Arrays.asList(new Role("USER")));
+        service.saveCustomer(piet);
         service.saveEmployee(henk);
-        User e = service.findUserByName("user");
 
         //create the banks own account
         Customer bankCustomer = new Customer();
@@ -44,12 +49,13 @@ public class Swagger2SpringBoot implements CommandLineRunner {
         bankAccount.setCustomer(bankCustomer.getId());
         bankAccount.setIBAN("NL01INHO0000000001");
         bankAccount.setBalance(2000f);
-        bankAccount.setMinimalBalance(-100f);
+        bankAccount.setMinimalBalance(0f);
         bankAccount.setDaylimit(10000f);
         bankAccount.setType("Checking");
-        bankAccount.setBalance(0f);
+        bankAccount.setBalance(500f);
         service.saveAccount(bankAccount);
-        builder.userDetailsService(s -> new CustomUserDetails(service.findUserByName(s)));
+        builder.userDetailsService(s -> new CustomUserDetails(service.findUserByName(s)) {
+        });
 
     }
 

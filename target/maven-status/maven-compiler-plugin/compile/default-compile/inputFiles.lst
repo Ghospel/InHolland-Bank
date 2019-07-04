@@ -19,6 +19,7 @@ D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\model\Role.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\api\EmployeeApi.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\api\TransactionApi.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\api\ApiResponseMessage.java
+D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\service\CustomUserDetailsService.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\configuration\SwaggerDocumentationConfig.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\api\UserController.java
 D:\Dev\Java\Inholland Bank\src\main\java\io\swagger\model\Customer.java

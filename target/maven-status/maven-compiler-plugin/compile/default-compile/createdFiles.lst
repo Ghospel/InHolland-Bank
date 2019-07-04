@@ -1,4 +1,5 @@
 io\swagger\api\TransactionApi.class
+io\swagger\service\CustomUserDetailsService.class
 io\swagger\configuration\HomeController.class
 io\swagger\api\EmployeeApi.class
 io\swagger\model\Customer.class
@@ -18,6 +19,7 @@ io\swagger\configuration\CustomInstantDeserializer$12.class
 io\swagger\api\CustomerApiController.class
 io\swagger\api\NotFoundException.class
 io\swagger\api\CustomerApi.class
+io\swagger\Swagger2SpringBoot$1.class
 io\swagger\configuration\CustomInstantDeserializer$5.class
 io\swagger\helper\IbanGenerator.class
 io\swagger\configuration\CustomInstantDeserializer$FromIntegerArguments.class

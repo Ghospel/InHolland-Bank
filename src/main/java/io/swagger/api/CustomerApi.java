@@ -28,7 +28,7 @@ public interface CustomerApi {
         @ApiResponse(code = 498, message = "Token expired"),
         @ApiResponse(code = 499, message = "Token required"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/api/customer", //TODO: edit this to /api/customer
+    @RequestMapping(value = "/api/customer", 
         produces = { "application/json" }, 
         method = RequestMethod.GET)
     ResponseEntity<List<Customer>> customerGet();

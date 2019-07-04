@@ -115,9 +115,6 @@ public class TransactionApiController implements TransactionApi {
                 return new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
             }
         }
-
-
-
         return new ResponseEntity<Transaction>(HttpStatus.BAD_REQUEST);
     }
 
